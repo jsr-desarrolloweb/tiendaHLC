@@ -15,6 +15,7 @@ public class Init {
 //        System.out.println(e);
 
         SistemaGestionEmpleados sge = new SistemaGestionEmpleados();
+        System.out.println(sge);
 
     }
 }
