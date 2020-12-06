@@ -33,6 +33,7 @@ public class SistemaPrincipal {
 
                     if (opcion == 1){
                         System.out.println("Va a relizar un pedido!");
+                        sgv.realizarPedido();
                     }
                     if (opcion == 2){
                         System.out.println("Va a modificar la contraseña!");

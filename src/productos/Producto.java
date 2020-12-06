@@ -13,6 +13,10 @@ public abstract class Producto {
         this.unidadesDisponibles_prod = unidadesDisponibles_prod;
     }
 
+    public int getUnidadesDisponibles_prod() {
+        return unidadesDisponibles_prod;
+    }
+
     public abstract float getPrecio();
 
     @Override
