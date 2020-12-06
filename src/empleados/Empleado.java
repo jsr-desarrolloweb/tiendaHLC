@@ -14,6 +14,22 @@ public class Empleado {
         this.nVentas_emp = nVentas_emp;
     }
 
+    public int getId_emp() {
+        return id_emp;
+    }
+
+    public String getNombre_emp() {
+        return nombre_emp;
+    }
+
+    public String getContrasena_emp() {
+        return contrasena_emp;
+    }
+
+    public int getnVentas_emp() {
+        return nVentas_emp;
+    }
+
     @Override
     public String toString() {
         return "Empleado{" +

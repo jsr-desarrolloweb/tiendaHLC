@@ -5,17 +5,18 @@ package init;
 
 import empleados.Empleado;
 import sistemas.SistemaGestionEmpleados;
+import sistemas.SistemaPrincipal;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Init {
     public static void main(String[] args) throws IOException {
-//
-//        Empleado e = new Empleado(1, "jaime", "jaime", 1100 );
-//        System.out.println(e);
 
-        SistemaGestionEmpleados sge = new SistemaGestionEmpleados();
-        System.out.println(sge);
+       SistemaPrincipal sppal = new SistemaPrincipal();
+
+        System.out.println( sppal.loginEmpleado());
+
 
     }
 }

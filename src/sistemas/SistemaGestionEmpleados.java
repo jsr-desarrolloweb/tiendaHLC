@@ -29,7 +29,7 @@ public class SistemaGestionEmpleados {
                 String contrasena_empleado = datos[2];
                 int nVentas_empleado = Integer.parseInt(datos[3]);
 
-                //Creamos un objetos Empleado para cada línea con los datos obtenidos y lo introducimos en el arraylist
+                //Creamos un objeto Empleado para cada línea con los datos obtenidos y lo introducimos en el arraylist
                 Empleado empleado = new Empleado(id_empleado, nombre_empleado, contrasena_empleado, nVentas_empleado);
 
                 this.empleadosEmpresa.add(empleado);
@@ -43,6 +43,10 @@ public class SistemaGestionEmpleados {
 
 
 
+    }
+
+    public ArrayList<Empleado> getEmpleadosEmpresa() {
+        return empleadosEmpresa;
     }
 
     @Override
