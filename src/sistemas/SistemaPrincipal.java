@@ -7,8 +7,9 @@ import java.util.Scanner;
 
 public class SistemaPrincipal {
 
-    //Maneja su sistema de gestion de empleados
+
     private SistemaGestionEmpleados sge = new SistemaGestionEmpleados();
+    private SistemaGestionVentas sgv = new SistemaGestionVentas();
 
     private int idEmpleadoLoggeado;
 
@@ -55,7 +56,7 @@ public class SistemaPrincipal {
 
     //Devuelve true si el login es correcto y false en caso contrario
     public boolean loginEmpleado(){
-
+        System.out.println("------ LOG IN -------");
         System.out.println("Nombre: ");
         String nombre  = "";
         Scanner sc = new Scanner(System.in);

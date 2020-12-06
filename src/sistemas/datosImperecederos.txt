@@ -1,0 +1,2 @@
+1:Conservas,15,35,5
+2:Garbanzos,20,50,0
