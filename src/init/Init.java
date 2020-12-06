@@ -16,7 +16,6 @@ public class Init {
        SistemaPrincipal sppal = new SistemaPrincipal();
        sppal.run();
 
-
-
+       
     }
 }

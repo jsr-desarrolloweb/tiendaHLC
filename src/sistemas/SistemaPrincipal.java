@@ -10,6 +10,8 @@ public class SistemaPrincipal {
     //Maneja su sistema de gestion de empleados
     private SistemaGestionEmpleados sge = new SistemaGestionEmpleados();
 
+    private int idEmpleadoLoggeado;
+
     public SistemaPrincipal() throws IOException {
     }
 
@@ -33,12 +35,13 @@ public class SistemaPrincipal {
                     }
                     if (opcion == 2){
                         System.out.println("Va a modificar la contraseña!");
+                        sge.cambiarPasswd(this.idEmpleadoLoggeado);
                     }
                     if (opcion == 3){
                         System.out.println("---SESIÓN CERRADA---");
                         break;
                     }
-                    
+
                 }
             }
 
@@ -67,6 +70,7 @@ public class SistemaPrincipal {
              sge.getEmpleadosEmpresa()) {
             if(nombre.equals(empleado.getNombre_emp()) && contrasena.equals(empleado.getContrasena_emp())){
                 //System.out.println("Login CORRECTO");
+                this.idEmpleadoLoggeado = empleado.getId_emp();
                 return true;
             }
 

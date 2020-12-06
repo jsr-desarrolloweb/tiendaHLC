@@ -30,6 +30,10 @@ public class Empleado {
         return nVentas_emp;
     }
 
+    public void setContrasena_emp(String contrasena_emp) {
+        this.contrasena_emp = contrasena_emp;
+    }
+
     @Override
     public String toString() {
         return "Empleado{" +
