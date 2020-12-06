@@ -14,8 +14,8 @@ public class Init {
     public static void main(String[] args) throws IOException {
 
        SistemaPrincipal sppal = new SistemaPrincipal();
+       sppal.run();
 
-        System.out.println( sppal.loginEmpleado());
 
 
     }
