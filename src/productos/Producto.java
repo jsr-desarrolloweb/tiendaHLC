@@ -29,7 +29,6 @@ public abstract class Producto {
         return precio_prod;
     }
 
-    public abstract float getPrecio();
 
     public void setUnidadesDisponibles_prod(int unidadesDisponibles_prod) {
         this.unidadesDisponibles_prod = unidadesDisponibles_prod;

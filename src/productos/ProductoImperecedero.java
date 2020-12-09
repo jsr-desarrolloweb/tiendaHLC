@@ -10,11 +10,14 @@ public class ProductoImperecedero extends Producto{
         this.porcentaje_oferta = porcentaje_oferta;
     }
 
-    @Override
-    public float getPrecio() {
-        //Calcula el precio del producto imperecedero
-        return 0;
-    }
+//    @Override
+//    public float getPrecio_prod() {
+//        //Calcula el precio del producto imperecedero
+//        return 0;
+//    }
+
+    //TODO Implementar método getPrecio();
+
 
     @Override
     public String toString() {

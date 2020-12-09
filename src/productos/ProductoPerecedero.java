@@ -14,11 +14,14 @@ public class ProductoPerecedero extends Producto{
 
 
 
-    @Override
-    public float getPrecio() {
-        //Calcula el precio del producto perecedero
-        return 0;
-    }
+//    @Override
+//    public float getPrecio_prod() {
+//        //Calcula el precio del producto perecedero
+//        return 0;
+//    }
+
+    //TODO Implementar método getPrecio();
+
 
     @Override
     public String toString() {

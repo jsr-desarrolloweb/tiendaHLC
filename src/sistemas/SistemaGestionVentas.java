@@ -21,9 +21,6 @@ public class SistemaGestionVentas {
 
     private ArrayList<ProductoCarrito> carrito = new ArrayList<ProductoCarrito>();
 
-
-
-
     public SistemaGestionVentas() throws IOException, NullPointerException{
         //
         //Lectura datos Productos Perecederos
@@ -80,7 +77,6 @@ public class SistemaGestionVentas {
             System.out.println(ex.getMessage());
         }
     }
-
 
     public void realizarPedido(){
         System.out.println("----------------- MENÚ DE PEDIDOS ------------------");
