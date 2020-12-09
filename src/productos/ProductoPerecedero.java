@@ -2,7 +2,6 @@ package productos;
 
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class ProductoPerecedero extends Producto{
 

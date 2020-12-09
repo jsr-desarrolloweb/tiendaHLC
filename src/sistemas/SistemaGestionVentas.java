@@ -1,7 +1,5 @@
 package sistemas;
 
-
-import productos.Producto;
 import productos.ProductoCarrito;
 import productos.ProductoImperecedero;
 import productos.ProductoPerecedero;
@@ -22,6 +20,8 @@ public class SistemaGestionVentas {
     private HashMap<Integer, ProductoImperecedero> stockProductoImperecedero = new HashMap<Integer, ProductoImperecedero>();
 
     private ArrayList<ProductoCarrito> carrito = new ArrayList<ProductoCarrito>();
+
+
 
 
     public SistemaGestionVentas() throws IOException, NullPointerException{
@@ -85,7 +85,6 @@ public class SistemaGestionVentas {
     public void realizarPedido(){
         System.out.println("----------------- MENÚ DE PEDIDOS ------------------");
 
-
         while(true){
             System.out.println("Elige una opción: \n (1) Añadir Producto.\n (2) Visualizar precio total.\n (3) Terminar Pedido. ");
             Scanner sc = new Scanner(System.in);
@@ -100,23 +99,12 @@ public class SistemaGestionVentas {
             }
             if (opcion == 3){
                 //Terminar pedido
+                verFactura();
                 System.out.println("Saliendo del menú de pedidos...");
                 break;
             }
         }
 
-
-    }
-
-
-    public void verPrecioPedido(){
-        float precioTotal = 0;
-        for (ProductoCarrito producto:
-             this.carrito) {
-            float precioProducto = producto.getUnidades_prodCarro()*producto.getPrecio_prodCarro();
-            precioTotal += precioProducto;
-        }
-        System.out.println("PRECIO TOTAL DEL PEDIDO HASTA AHORA -----------> " + precioTotal);
     }
 
     public void anadirProducto(){
@@ -159,7 +147,6 @@ public class SistemaGestionVentas {
             System.out.println("ID del producto a añadir: ");
             int id = sc.nextInt();
 
-
             ProductoImperecedero productoElegido = this.getStockProductoImperecedero().get(id);
 
             int id_prodCarro = productoElegido.getId_prod();
@@ -181,6 +168,26 @@ public class SistemaGestionVentas {
                 System.out.println("Unidades no disponibles!");
             }
         }
+    }
+
+    public void verPrecioPedido(){
+        float precioTotal = 0;
+        for (ProductoCarrito producto:
+                this.carrito) {
+            float precioProducto = producto.getUnidades_prodCarro()*producto.getPrecio_prodCarro();
+            precioTotal += precioProducto;
+        }
+        System.out.println("PRECIO TOTAL DEL PEDIDO -----------> " + precioTotal);
+    }
+
+    public void verFactura(){
+        System.out.println("------- FACTURA DEL PEDIDO ------");
+        for (ProductoCarrito producto:
+                this.carrito){
+            System.out.println("Producto: " + producto.getNombre_prodCarro() + " Unidades: " + producto.getUnidades_prodCarro() + " Precio Unitario: " + producto.getPrecio_prodCarro());
+        }
+        verPrecioPedido();
+        this.carrito.clear();
     }
 
 
