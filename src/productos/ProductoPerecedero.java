@@ -13,6 +13,8 @@ public class ProductoPerecedero extends Producto{
         this.fechaCaducidad = fechaCaducidad;
     }
 
+
+
     @Override
     public float getPrecio() {
         //Calcula el precio del producto perecedero

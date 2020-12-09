@@ -2,6 +2,7 @@ package sistemas;
 
 
 import productos.Producto;
+import productos.ProductoCarrito;
 import productos.ProductoImperecedero;
 import productos.ProductoPerecedero;
 import java.io.BufferedReader;
@@ -20,7 +21,7 @@ public class SistemaGestionVentas {
     //Diccionario de productos imperecederos en stock
     private HashMap<Integer, ProductoImperecedero> stockProductoImperecedero = new HashMap<Integer, ProductoImperecedero>();
 
-    private ArrayList<Producto> carrito = new ArrayList<Producto>();
+    private ArrayList<ProductoCarrito> carrito = new ArrayList<ProductoCarrito>();
 
 
     public SistemaGestionVentas() throws IOException, NullPointerException{
@@ -95,7 +96,7 @@ public class SistemaGestionVentas {
                 anadirProducto();
             }
             if (opcion == 2){
-                //ver precio total
+                verPrecioPedido();
             }
             if (opcion == 3){
                 //Terminar pedido
@@ -107,6 +108,17 @@ public class SistemaGestionVentas {
 
     }
 
+
+    public void verPrecioPedido(){
+        float precioTotal = 0;
+        for (ProductoCarrito producto:
+             this.carrito) {
+            float precioProducto = producto.getUnidades_prodCarro()*producto.getPrecio_prodCarro();
+            precioTotal += precioProducto;
+        }
+        System.out.println("PRECIO TOTAL DEL PEDIDO HASTA AHORA -----------> " + precioTotal);
+    }
+
     public void anadirProducto(){
         System.out.println("¿Perecedero (1) // Imperecedero (2)?");
         Scanner sc = new Scanner(System.in);
@@ -116,22 +128,58 @@ public class SistemaGestionVentas {
             System.out.println(getStockProductoPerecedero());
             System.out.println("ID del producto a añadir: ");
             int id = sc.nextInt();
-            System.out.println("Nº de unidades del producto: ");
-            int unidades = sc.nextInt();
-            if (unidades < this.stockProductoPerecedero.get(id).getUnidadesDisponibles_prod()){
-                //carrito.add(stockProductoPerecedero.get(id));
-//                .
-//                .
-//                .
-//                .
-//                .
-//                .
-//                .
-//                .
+
+
+            ProductoPerecedero productoElegido = this.getStockProductoPerecedero().get(id);
+
+            int id_prodCarro = productoElegido.getId_prod();
+            String nombre_prodCarro = productoElegido.getNombre_prod();
+            float precio_ProdCarro  = productoElegido.getPrecio_prod();
+
+            while (true){
+                System.out.println("Nº de unidades del producto: ");
+                int unidades = sc.nextInt();
+                if (unidades < productoElegido.getUnidadesDisponibles_prod()){
+
+                    ProductoCarrito productoCarrito = new ProductoCarrito(id_prodCarro, nombre_prodCarro, unidades, precio_ProdCarro);
+                    carrito.add(productoCarrito);
+
+                    //Se actualzian las unidades disponibles del producto
+                    productoElegido.setUnidadesDisponibles_prod(productoElegido.getUnidadesDisponibles_prod() - unidades);
+                    break;
+                }
+                System.out.println("Unidades no disponibles!");
             }
+
+
+
         }
         if (opcion == 2){
             System.out.println(getStockProductoImperecedero());
+            System.out.println("ID del producto a añadir: ");
+            int id = sc.nextInt();
+
+
+            ProductoImperecedero productoElegido = this.getStockProductoImperecedero().get(id);
+
+            int id_prodCarro = productoElegido.getId_prod();
+            String nombre_prodCarro = productoElegido.getNombre_prod();
+            float precio_ProdCarro  = productoElegido.getPrecio_prod();
+
+            while (true){
+                System.out.println("Nº de unidades del producto: ");
+                int unidades = sc.nextInt();
+                if (unidades < productoElegido.getUnidadesDisponibles_prod()){
+
+                    ProductoCarrito productoCarrito = new ProductoCarrito(id_prodCarro, nombre_prodCarro, unidades, precio_ProdCarro);
+                    carrito.add(productoCarrito);
+
+                    //Se actualzian las unidades disponibles del producto
+                    productoElegido.setUnidadesDisponibles_prod(productoElegido.getUnidadesDisponibles_prod() - unidades);
+                    break;
+                }
+                System.out.println("Unidades no disponibles!");
+            }
         }
     }
 

@@ -17,7 +17,23 @@ public abstract class Producto {
         return unidadesDisponibles_prod;
     }
 
+    public int getId_prod() {
+        return id_prod;
+    }
+
+    public String getNombre_prod() {
+        return nombre_prod;
+    }
+
+    public float getPrecio_prod() {
+        return precio_prod;
+    }
+
     public abstract float getPrecio();
+
+    public void setUnidadesDisponibles_prod(int unidadesDisponibles_prod) {
+        this.unidadesDisponibles_prod = unidadesDisponibles_prod;
+    }
 
     @Override
     public String toString() {
